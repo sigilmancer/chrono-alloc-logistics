@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Courier {
+  id     Int    @id @default(autoincrement())
+  name   String
+  status Int    @default(0)
+  shard  Int    @default(0)
+
+  DispatchRun DispatchRun[]
+}
+
+model Depot {
+  id       Int    @id @default(autoincrement())
+  name     String
+  status   Int    @default(0)
+  location String
+  shard    Int    @default(0)
+
+  dispatchRun DispatchRun[]
+}
+
+model DispatchRun {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  startAt     DateTime  @map("start_at")
+  endAt       DateTime  @map("end_at")
+  jobType     String    @map("job_type")
+  depotId Int       @map("depot_id")
+  courierId    Int?      @map("courier_id")
+  shard       Int       @default(0)
+  cancelledAt DateTime? @map("cancelled_at")
+
+  hourlyRate        Int      @default(1300) @map("hourly_rate")
+  isUrgent          Boolean  @default(false) @map("is_urgent")
+  previousCourierId  Int?     @map("previous_courier_id")
+  reminderStatus    String   @default("PENDING") @map("reminder_status")
+
+  courier    Courier?   @relation(fields: [courierId], references: [id])
+  depot Depot @relation(fields: [depotId], references: [id])
+
+  @@index([shard, reminderStatus, startAt])
+  @@index([shard, isUrgent, courierId])
+  @@index([id, shard])
+}

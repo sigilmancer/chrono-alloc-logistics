@@ -1,0 +1,74 @@
+# ==========================================
+# NestJS Build & Artifacts
+# ==========================================
+/dist
+/node_modules
+
+# ==========================================
+# Environment Variables & Secrets (CRITICAL)
+# ==========================================
+.env
+.env.development
+.env.test
+.env.production
+.env.local
+
+# Allow committing the template file so others know what keys to use
+!.env.example
+
+# ==========================================
+# Logs and Diagnostics
+# ==========================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+*.log
+
+# ==========================================
+# Testing & Coverage
+# ==========================================
+/coverage
+/.nyc_output
+
+# ==========================================
+# IDEs, Editors, and OS Files
+# ==========================================
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Docker & Local Databases (If applicable)
+# ==========================================
+.docker/
+# Exclude local database storage folders if mapping volumes locally
+/db_data/
+
+# ==========================================
+# Compiled TypeScript Files
+# ==========================================
+# Ignore JavaScript outputs generated from TS files
+src/**/*.js
+src/**/*.js.map
+
+# Ignore root-level JavaScript build artifacts (if applicable)
+*.js.map
+
+# ==========================================
+# Prisma Exclusions
+# ==========================================
+# Ignore the entire migrations directory and everything inside it
+prisma/migrations/
+
+# Ignore local SQLite database files (if you are using them)
+*.db
+*.db-journal
