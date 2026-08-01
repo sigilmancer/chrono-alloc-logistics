@@ -19,7 +19,8 @@
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node", "jest"] 
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
