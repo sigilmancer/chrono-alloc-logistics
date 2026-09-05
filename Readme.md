@@ -34,44 +34,7 @@ The codebase includes scheduler-related logic and operational checks. This servi
 
 ## Project architecture
 
-The application follows a standard NestJS modular design:
-
-```text
-src/
-├── app.module.ts
-├── main.ts
-├── modules/
-│   ├── courier/
-│   │   ├── courier.controller.ts
-│   │   ├── courier.mapper.ts
-│   │   ├── courier.module.ts
-│   │   ├── courier.schemas.ts
-│   │   └── courier.service.ts
-│   ├── depots/
-│   │   ├── depots.controller.ts
-│   │   ├── depots.mapper.ts
-│   │   ├── depots.module.ts
-│   │   ├── depots.schemas.ts
-│   │   └── depots.service.ts
-│   ├── dispatchRuns/
-│   │   ├── dispatchRuns.controller.ts
-│   │   ├── dispatchRuns.mapper.ts
-│   │   ├── dispatchRuns.module.ts
-│   │   ├── dispatchRuns.scheduler.ts
-│   │   ├── dispatchRuns.schemas.ts
-│   │   └── dispatchRuns.service.ts
-│   ├── prisma/
-│   │   ├── prisma.module.ts
-│   │   └── prisma.service.ts
-│   └── shared/
-│       ├── constants.ts
-│       ├── pagination.ts
-│       ├── pagination.spec.ts
-│       ├── shared.types.ts
-├── pipes/
-│   └── zod-validation-pipe.ts
-└── scripts/
-```
+The application follows a standard NestJS modular design.
 
 ## Domain model
 
